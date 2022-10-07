@@ -1,4 +1,4 @@
-# cs410-final-project
+# cs410-course-project
 CS410: Text Information Systems Final Project
 
 | Author           | Email                   |
