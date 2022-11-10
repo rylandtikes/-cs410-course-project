@@ -9,7 +9,7 @@ import pandas as pd
 
 
 DATASET = "./data/UkrainianConflict-comments-1000.csv"
-LABELED_CSV_OUTFILE = "./data/UkrainianConflict-comments-1000-labeled.csv"
+LABELED_CSV_OUTFILE = "./data/UkrainianConflict-comments-1000-labeled-n.csv"
 
 
 def load_data(source_data: str) -> list:
@@ -35,7 +35,7 @@ def rank_data(loaded_source_data: list) -> list:
     return sia_data
 
 
-def label_data(sia_data: list, thresh_pos: float, thresh_neg: float) -> pd.DataFrame:
+def label_data(sia_data: list, thresh_neg: float,  thresh_pos: float) -> pd.DataFrame:
     """
     -1 (Extremely Negative) to 1 (Extremely Positive)
     """
@@ -49,7 +49,7 @@ def label_data(sia_data: list, thresh_pos: float, thresh_neg: float) -> pd.DataF
 def main():
     loaded_source_data = load_data(DATASET)
     sia_data = rank_data(loaded_source_data)
-    labeled_df = label_data(sia_data, 0.2, -0.2)
+    labeled_df = label_data(sia_data, -0.2, 0.2)
 
     # Change order of dataframe columns
     labeled_df = labeled_df[["headline", "neg", "neu", "pos", "compound", "label"]]
