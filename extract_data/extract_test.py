@@ -4,32 +4,60 @@ import praw
 from praw.models import MoreComments
 import json
 import pandas as pd
+import os
 
-DATASET_SIZE = 1000
+DATASET_SIZE = 10
+SUBREDDIT = "UkrainianConflict"
+
 
 def extract_headlines():
-    headlines = set()
+    headlines = []
 
-    for submission in reddit.subreddit("UkrainianConflict").new(limit=DATASET_SIZE):
-        headlines.add(submission.title)
-
-    df = pd.DataFrame(data=list(headlines))
-    df.to_csv("./data/UkrainianConflict-headlines.csv", index=False)
+    for submission in reddit.subreddit(SUBREDDIT).new(limit=DATASET_SIZE):
+        headlines.append(
+            {
+                "created_utc": submission.created_utc,
+                "id": submission.id,
+                "subreddit_id": submission.subreddit_id,
+                "downs": submission.downs,
+                "ups": submission.ups,
+                "author": submission.author,
+                "total_awards_received": submission.total_awards_received,
+                "title": submission.title,
+            }
+        )
+    return headlines
 
 
 def extract_comments():
     comments = []
 
-    for top_level_comment in reddit.subreddit("UkrainianConflict").stream.comments():
+    for top_level_comment in reddit.subreddit(SUBREDDIT).stream.comments():
         if len(comments) == DATASET_SIZE:
             break
         if isinstance(top_level_comment, MoreComments):
             continue
-        comments.append(top_level_comment.body)
-        print(len(comments))
+        comments.append(
+            {
+                "created_utc": top_level_comment.created_utc,
+                "id": top_level_comment.id,
+                "subreddit_id": top_level_comment.subreddit_id,
+                "downs": top_level_comment.downs,
+                "ups": top_level_comment.ups,
+                "author": top_level_comment.author,
+                "total_awards_received": top_level_comment.total_awards_received,
+                "body": top_level_comment.body,
+            }
+        )
+    return comments
 
-    df = pd.DataFrame(data=comments)
-    df.to_csv("./data/UkrainianConflict-comments.csv", index=False)
+
+def write_file(filename: str, reddit_data: list) -> None:
+    df = pd.DataFrame(data=reddit_data)
+    if not os.path.isfile(filename):
+        df.to_csv(filename, header="column_names", index=False)
+    else:
+        df.to_csv(filename, mode="a", header=False, index=False)
 
 
 if __name__ == "__main__":
@@ -41,5 +69,9 @@ if __name__ == "__main__":
         client_secret=creds["client_secret"],
         user_agent=creds["user_agent"],
     )
-    extract_headlines()
-    extract_comments()
+
+    headlines = extract_headlines()
+    write_file(filename="./data/UkrainianConflict-headlines.csv", reddit_data=headlines)
+
+    comments = extract_comments()
+    write_file(filename="./data/UkrainianConflict-comments.csv", reddit_data=comments)
