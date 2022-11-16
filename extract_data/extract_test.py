@@ -23,7 +23,7 @@ def extract_headlines():
                 "ups": submission.ups,
                 "author": submission.author,
                 "total_awards_received": submission.total_awards_received,
-                "title": submission.title,
+                "body": submission.title,
             }
         )
     return headlines
