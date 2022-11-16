@@ -39,6 +39,7 @@ def rank_data(source_df: pd.DataFrame) -> pd.DataFrame:
         pol_score["author"] = source_df.loc[i, "author"]
         pol_score["total_awards_received"] = source_df.loc[i, "total_awards_received"]
         pol_score["headline"] = headline
+        pol_score["city"] = contains_city(headline)
 
         sia_data.append(pol_score)
 
@@ -48,6 +49,26 @@ def rank_data(source_df: pd.DataFrame) -> pd.DataFrame:
 def clean_body(line: str) -> str:
     printable = set(string.printable)
     return "".join(filter(lambda x: x in printable, line)).strip()
+
+
+def contains_city(headline: str) -> str:
+    ukraine_top_cities = [
+        "Kyiv",
+        "Kharkiv",
+        "Odesa",
+        "Dnipro",
+        "Donetsk",
+        "Zaporizhzhia",
+        "Lviv",
+        "Kryvyi Rih",
+        "Mykolaiv",
+        "Sevastopol",
+    ]
+
+    for city in ukraine_top_cities:
+        if city.lower() in headline.lower():
+            return city
+    return ""
 
 
 def label_data(sia_data: list, thresh_neg: float, thresh_pos: float) -> pd.DataFrame:
@@ -83,6 +104,7 @@ def process_dataset(input_datset: str, output_dataset: str) -> None:
             "pos",
             "compound",
             "label",
+            "city",
             "headline",
         ]
     ]
