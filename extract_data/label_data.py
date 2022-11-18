@@ -131,9 +131,11 @@ def process_dataset(input_dataset: str, output_dataset: str) -> None:
             "headline",
         ]
     ]
+    # Sort by date
+    sorted_labeled_df = labeled_df.sort_values(by="created_utc", ascending=False)
 
     # Write labeled data to CSV
-    labeled_df.to_csv(output_dataset, encoding="utf-8", index=False)
+    sorted_labeled_df.to_csv(output_dataset, encoding="utf-8", index=False)
 
 
 def main():
