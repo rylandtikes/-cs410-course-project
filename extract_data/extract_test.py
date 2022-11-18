@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-
+"""
+Extracts comments and headlines from Reddit API. Requires the creation of a
+developer application on Reddit. https://www.reddit.com/prefs/apps
+"""
+import json
+import os
 import praw
 from praw.models import MoreComments
-import json
 import pandas as pd
-import os
 
-DATASET_SIZE = 10
+
+DATASET_SIZE = 100
 SUBREDDIT = "UkrainianConflict"
 
 
@@ -26,6 +30,7 @@ def extract_headlines():
                 "body": submission.title,
             }
         )
+        print(f"headlines extracted {len(headlines)}")
     return headlines
 
 
@@ -49,6 +54,7 @@ def extract_comments():
                 "body": top_level_comment.body,
             }
         )
+        print(f"comments extracted {len(comments)}")
     return comments
 
 
@@ -61,7 +67,7 @@ def write_file(filename: str, reddit_data: list) -> None:
 
 
 if __name__ == "__main__":
-    with open("creds.json") as fh:
+    with open("creds.json", mode="r", encoding="utf-8") as fh:
         creds = json.loads(fh.read())[0]
 
     reddit = praw.Reddit(
