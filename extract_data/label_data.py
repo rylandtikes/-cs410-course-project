@@ -19,7 +19,7 @@ def load_data(source_data: str) -> pd.DataFrame:
     """
     Loads the raw data extracted from Reddit
     """
-    source_df = pd.read_csv(source_data)
+    source_df = pd.read_csv(source_data, lineterminator='\n')
     return source_df
 
 
