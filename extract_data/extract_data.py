@@ -10,7 +10,7 @@ from praw.models import MoreComments
 import pandas as pd
 
 
-DATASET_SIZE = 100
+DATASET_SIZE = 1000
 SUBREDDIT = "UkrainianConflict"
 
 
