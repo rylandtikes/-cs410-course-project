@@ -20,6 +20,7 @@ Data is extracted through the Reddit API.
 
 1. [Register for a Reddit Account](https://www.reddit.com/register/)
 2. [Create Application on Reddit](https://www.reddit.com/prefs/apps)
+   ![alt text](./images/create-reddit-app.png)
 3. [creds-example.json](/extract_data/creds-example.json) add **client_id, client_secret, and user_agent**
 4. [Execute extract_data.py](/extract_data/extract_data.py)
    - [Example raw comments dataset](/extract_data/data/UkrainianConflict-comments.csv)
