@@ -52,12 +52,12 @@ NRCLex, pandas, and plotly.express
 2. [Execute emotions.py](/extract_data/emotions.py)
 
 ## Emotions Visualization
-![alt text](./images/emotion_analysis_pie.png)
+![alt text](./images/emotion_analysis-pie.png)
 ![alt text](./images/emotion_analysis_bar.png)
 
 ## References
 ##https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541
-## https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541
+
 
 ## Team
 
