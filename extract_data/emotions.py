@@ -49,7 +49,7 @@ emotion_df = emotion_df.rename(columns={'index' : 'Emotion Classification' , 0: 
 emotion_df = emotion_df.sort_values(by=['Emotion Count'], ascending=False)
 print(emotion_df)
 
-fig_bar = px.bar(emotion_df, x='Emotion Count', y='Emotion Classification', color = 'Emotion Classification', orientation='h', width = 800, height = 400)
+fig_bar = px.bar(emotion_df, x='Emotion Count', y='Emotion Classification', color = 'Emotion Classification', title = "Ukraine War Reddit Sentiment Analysis", orientation='h', width = 800, height = 400)
 #fig.show()
 fig_pie = px.pie(emotion_df, values = "Emotion Count", names = "Emotion Classification", color = 'Emotion Classification', title = "Ukraine War Reddit Sentiment Analysis", width = 800, height = 400)
 fig_pie.show()

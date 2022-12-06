@@ -42,8 +42,22 @@ clear understanding of community sentiment of the headline and comment.
 ![alt text](./images/dashboard.png)
 
 ## Emotions Research
+Emotion analysis is pretty new field within Sentiment Analysis. Emotion Analysis parses input document and provides emotions as output. While there are different libraries that output different emotions, we have chosen to use NRCLexicon library to parse our documents. NRCLexicon has fear, anger, anticipation, trust, surprise, positive, negative, sadness, disgust, and joy as the categories of emotions. In our project we are passing headlines of the Ukraine war from reddit as document and extracting emotions out of these headlines. These emotions are labeled are either 1(exists) or 0(does not exist) across all the emotions. If there are more than 1 emotion of the same type within a document, it increases the number for that particular emotion. Finally, we look at overall emotions across headlines and see which emotions are more prevalent. Since we are extracting headlines of Ukraine War, we expected to see more negative emotions than positive ones, and the diagram proves that as well. Negative, fear, anger, sadness, disgust are consistently over 50%.
+
+# Libraries used for Emotions
+NRCLex, pandas, and plotly.express
+
+**Steps to reproduce the emotions**
+1. [Follow instructions above to create data pipeline if not done already
+2. [Execute emotions.py](/extract_data/emotions.py)
+
+## Emotions Visualization
+![alt text](./images/emotion_analysis_pie.png)
+![alt text](./images/emotion_analysis_bar.png)
 
 ## References
+##https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541
+## https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541
 
 ## Team
 
