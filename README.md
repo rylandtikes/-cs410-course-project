@@ -74,7 +74,8 @@ NRCLex, pandas, and plotly.express
 - [PRAW: The Python Reddit API Wrapper](https://praw.readthedocs.io/en/stable/)
 - [Emotion Classification](https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541)
 
-
+## Demo Video
+- [Demo Video](https://www.youtube.com/watch?v=K2iICQAalEQ)
 
 ## Team
 
