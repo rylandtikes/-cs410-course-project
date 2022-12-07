@@ -19,7 +19,7 @@ def load_data(source_data: str) -> pd.DataFrame:
     """
     Loads the raw data extracted from Reddit
     """
-    source_df = pd.read_csv(source_data, lineterminator='\n')
+    source_df = pd.read_csv(source_data, lineterminator="\n")
     return source_df
 
 
@@ -138,7 +138,37 @@ def process_dataset(input_dataset: str, output_dataset: str) -> None:
     sorted_labeled_df.to_csv(output_dataset, encoding="utf-8", index=False)
 
 
-def main():
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--headlines-input-dataset",
+        type=str,
+        required=False,
+        help="raw headlines dataset extracted from Reddit API",
+        default="./data/UkrainianConflict-headlines-demo.csv",
+    )
+    parser.add_argument(
+        "--headlines-output-dataset",
+        type=str,
+        required=False,
+        help="cleaned and labeled headlines dataset",
+        default="./data/UkrainianConflict-headlines-labeled-demo.csv",
+    )
+    parser.add_argument(
+        "--comments-input-dataset",
+        type=str,
+        required=False,
+        help="raw comments dataset extracted from Reddit API",
+        default="./data/UkrainianConflict-comments-demo.csv",
+    )
+    parser.add_argument(
+        "--comments-output-dataset",
+        type=str,
+        required=False,
+        help="cleaned and labeled comments dataset",
+        default="./data/UkrainianConflict-comments-labeled-demo.csv",
+    )
+    args = parser.parse_args()
     # process headlines
     process_dataset(
         input_dataset=args.headlines_input_dataset,
@@ -150,37 +180,3 @@ def main():
         input_dataset=args.comments_input_dataset,
         output_dataset=args.comments_output_dataset,
     )
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--headlines-input-dataset",
-        type=str,
-        required=False,
-        help="raw headlines dataset extracted from Reddit API",
-        default="./data/UkrainianConflict-headlines.csv",
-    )
-    parser.add_argument(
-        "--headlines-output-dataset",
-        type=str,
-        required=False,
-        help="cleaned and labeled headlines dataset",
-        default="./data/UkrainianConflict-headlines-labeled.csv",
-    )
-    parser.add_argument(
-        "--comments-input-dataset",
-        type=str,
-        required=False,
-        help="raw comments dataset extracted from Reddit API",
-        default="./data/UkrainianConflict-comments.csv",
-    )
-    parser.add_argument(
-        "--comments-output-dataset",
-        type=str,
-        required=False,
-        help="cleaned and labeled comments dataset",
-        default="./data/UkrainianConflict-comments-labeled.csv",
-    )
-    args = parser.parse_args()
-    main()
