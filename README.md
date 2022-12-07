@@ -21,14 +21,17 @@ Data is extracted through the Reddit API.
 1. [Register for a Reddit Account](https://www.reddit.com/register/)
 2. [Create Application on Reddit](https://www.reddit.com/prefs/apps)
    ![alt text](./images/create-reddit-app.png)
-3. [creds-example.json](/extract_data/creds-example.json) add **client_id, client_secret, and user_agent**
-4. [Execute extract_data.py](/extract_data/extract_data.py)
+3. Create and activate a virtual environment (preferably through conda) with Python 3.9.13
+4. Clone /extract_data into local environment
+5. pip install -r /extract_data/requirements.txt
+6. [creds-example.json](/extract_data/creds-example.json) add **client_id, client_secret, and user_agent**
+7. [Execute extract_data.py](/extract_data/extract_data.py)
    - [Example raw comments dataset](/extract_data/data/UkrainianConflict-comments.csv)
    - [Example raw headlines dataset](/extract_data/data/UkrainianConflict-headlines.csv)
-5. [Execute label_data.py](/extract_data/label_data.py)
+8. [Execute label_data.py](/extract_data/label_data.py)
    - [Example labeled comments dataset](/extract_data/data/UkrainianConflict-comments-labeled.csv)
    - [Example labeled headlines dataset](/extract_data/data/UkrainianConflict-headlines-labeled.csv)
-6. [Execute update_data.py](/extract_data/update_data.py) , wait at least 24 hrs to give community time to upvote
+9. [Execute update_data.py](/extract_data/update_data.py) , wait at least 24 hrs to give community time to upvote
    - [Example updated labeled comments dataset](/extract_data/data/UkrainianConflict-comments-labeled-updated.csv)
 
 ## Sentiment Analysis
@@ -65,7 +68,7 @@ NRCLex, pandas, and plotly.express
 ![alt text](./images/emotion_analysis_bar.png)
 
 ## References
-##https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541
+## https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541
 
 
 ## Team
