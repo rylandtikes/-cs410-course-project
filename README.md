@@ -41,6 +41,15 @@ clear understanding of community sentiment of the headline and comment.
 
 ![alt text](./images/dashboard.png)
 
+To tell the story regarding the sentiment of the Ukrainian war by the UkrainianConflict subreddit, we built a dashboard through Plotly Dash. The first story we look to show on the top left is the overall sentiment of headlines and posts across time, showing how sentiment is trending and correlating with present day events. The second story on the top right is regarding the overall volume and sentiment of posts corresponding to certain cities across the country, which helps to highlight where are the most critical events occurring and what is the sentiment according to Reddit. Lastly, on the bottom, we show the top posts by date and to their respective thread comments and net sentiment, showing what the conversation and sentiment is really like for some of the top articles of the day.
+
+To reproduce the dashboard,
+1. Create and activate a virtual environment (preferably through conda) with Python 3.9.13
+2. Clone /dashboard into local environment
+3. pip install -r /dashboard/requirements.txt
+4. Run app.py and view on http://127.0.0.1:8050/
+
+
 ## Emotions Research
 Emotion analysis is pretty new field within Sentiment Analysis. Emotion Analysis parses input document and provides emotions as output. While there are different libraries that output different emotions, we have chosen to use NRCLexicon library to parse our documents. NRCLexicon has fear, anger, anticipation, trust, surprise, positive, negative, sadness, disgust, and joy as the categories of emotions. In our project we are passing headlines of the Ukraine war from reddit as document and extracting emotions out of these headlines. These emotions are labeled are either 1(exists) or 0(does not exist) across all the emotions. If there are more than 1 emotion of the same type within a document, it increases the number for that particular emotion. Finally, we look at overall emotions across headlines and see which emotions are more prevalent. Since we are extracting headlines of Ukraine War, we expected to see more negative emotions than positive ones, and the diagram proves that as well. Negative, fear, anger, sadness, disgust are consistently over 50%.
 
