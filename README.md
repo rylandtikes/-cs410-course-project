@@ -68,7 +68,12 @@ NRCLex, pandas, and plotly.express
 ![alt text](./images/emotion_analysis_bar.png)
 
 ## References
-## https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541
+- [Natural Language Toolkit Documentation](https://www.nltk.org/)
+- [Vader Lexicon](https://www.kaggle.com/datasets/nltkdata/vader-lexicon)
+- [Python API reference for plotly](https://plotly.com/python-api-reference/)
+- [PRAW: The Python Reddit API Wrapper](https://praw.readthedocs.io/en/stable/)
+- [simple-emotion-classification](https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541)
+
 
 
 ## Team
