@@ -56,9 +56,9 @@ Emotion analysis is pretty new field within Sentiment Analysis. Emotion Analysis
 # Libraries used for Emotions
 NRCLex, pandas, and plotly.express
 
-**Steps to reproduce the emotions**
-1. [Follow instructions above to create data pipeline if not done already
-2. [Execute emotions.py](/extract_data/emotions.py)
+## Steps to reproduce the emotions**
+1. Follow instructions above to create data pipeline if not done already
+2. Execute emotions.py](/extract_data/emotions.py)
 
 ## Emotions Visualization
 ![alt text](./images/emotion_analysis-pie.png)
