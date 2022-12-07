@@ -72,7 +72,7 @@ NRCLex, pandas, and plotly.express
 - [Vader Lexicon](https://www.kaggle.com/datasets/nltkdata/vader-lexicon)
 - [Python API reference for plotly](https://plotly.com/python-api-reference/)
 - [PRAW: The Python Reddit API Wrapper](https://praw.readthedocs.io/en/stable/)
-- [simple-emotion-classification](https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541)
+- [Emotion Classification](https://medium.com/geekculture/simple-emotion-classification-in-python-40fb24692541)
 
 
 
